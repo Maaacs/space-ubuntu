@@ -15,6 +15,7 @@ if [[ "$OS" == "Linux" ]]; then
   sudo apt-get install git-all
   sudo apt install zsh
   chsh -s $(which zsh)
+  touch ~/.zshrc
   sudo apt install fonts-firacode
   echo "Finish install dependences on Linux."
 elif [[ "$OS" == "Darwin" ]]; then
