@@ -5,6 +5,7 @@
 #
 
 # Checks SO 
+OS=$(uname -s)
 if [[ "$OS" == "Linux" ]]; then
   echo "Installating dependences on Linux..."
   #sudo rm /var/lib/dpkg/info/format
