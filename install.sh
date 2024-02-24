@@ -4,17 +4,53 @@
 # https://github.com/Maaacs/Spaceship-Dracula-Colors
 #
 
+# Checks SO 
+if [[ "$OS" == "Linux" ]]; then
+  echo "Installating dependences on Linux..."
+  #sudo rm /var/lib/dpkg/info/format
+  #sudo printf "1\n" > /var/lib/dpkg/info/format
+  sudo add-apt-repository universe
+  sudo apt update && sudo apt upgrade -y
+  sudo apt-get install git-all
+  sudo apt install zsh
+  chsh -s $(which zsh)
+  sudo apt install fonts-firacode
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "Finish install dependences on Linux."
+elif [[ "$OS" == "Darwin" ]]; then
+  echo "Start installation on MacOS X."
+  # Verify brew installation
+  if ! brew --version > /dev/null 2>&1; then
+    echo "Brew not found. Installing brew...!"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || { echo "Failed to install Brew."; exit 1; }
+  fi
+  # Brew is guaranteed to be installed
+  if ! brew list gnu-sed > /dev/null 2>&1; then
+    brew install gnu-sed
+  fi
+  # Check and append to .zshrc only once
+  if [[ -f ~/.zshrc && -w ~/.zshrc && ! $(grep 'GNUD-SED' ~/.zshrc) ]]; then
+    echo '
+#START GNUD-SED
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+#END GNUD-SED
+' >> ~/.zshrc
+    echo "Gnu-sed installed and configured."
+  else
+    echo "Gnu-sed already installed or .zshrc not found/not writable."
+  fi
+else
+  echo "Unsupported operating system."
+fi
+
+
+
+
 # Checks if the file ~/.zshrc exists and is accessible
 if [[ -f ~/.zshrc && -w ~/.zshrc ]]; then
     echo "Starting Spaceship installation..."
-    # Removing old installations
-    rm -rf "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt"
-    rm -rf "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
     # Remove the installation of this profile before inserting a new one at the end of the file
     sed -i '/#START SPACESHIP DRACULA PROFILE/,/#END SPACESHIP DRACULA PROFILE/d' ~/.zshrc
-    git clone https://github.com/Maaacs/Spaceship-Dracula-Colors.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1
-    # Symbolic link to spaceship theme file
-    ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
     # Replace the current ZSH_THEME with spaceship
     sed -i 's/ZSH_THEME="[^"]*"/ZSH_THEME="spaceship"/' ~/.zshrc
     echo "Spaceship installed."
@@ -92,7 +128,13 @@ zinit light zsh-users/zsh-completions
 #END HIGHLIGHTING AUTOSUGGESTIONS COMPLETIONS
 ' >> ~/.zshrc
     echo "syntax-highlighting autosuggestions completions installed."
+    # Removing old installations
+    rm -rf "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt"
+    rm -rf "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+    git clone https://github.com/Maaacs/Spaceship-Dracula-Colors.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1
+    # Symbolic link to spaceship theme file
+    ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
     echo "Success! Restart Terminal..."
 else
-    echo "Error in Zinit."
+    echo "Error in Zinit or Oh-my-zsh."
 fi
