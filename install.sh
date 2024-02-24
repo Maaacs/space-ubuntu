@@ -15,7 +15,6 @@ if [[ "$OS" == "Linux" ]]; then
   sudo apt install zsh
   chsh -s $(which zsh)
   sudo apt install fonts-firacode
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "Finish install dependences on Linux."
 elif [[ "$OS" == "Darwin" ]]; then
   echo "Start installation on MacOS X."
@@ -44,16 +43,9 @@ else
 fi
 
 
-
-
 # Checks if the file ~/.zshrc exists and is accessible
 if [[ -f ~/.zshrc && -w ~/.zshrc ]]; then
     echo "Starting Spaceship installation..."
-    # Remove the installation of this profile before inserting a new one at the end of the file
-    sed -i '/#START SPACESHIP DRACULA PROFILE/,/#END SPACESHIP DRACULA PROFILE/d' ~/.zshrc
-    # Replace the current ZSH_THEME with spaceship
-    sed -i 's/ZSH_THEME="[^"]*"/ZSH_THEME="spaceship"/' ~/.zshrc
-    echo "Spaceship installed."
     # Insert Dracula Colors and Custom Profile
 echo '
 #START SPACESHIP DRACULA PROFILE
@@ -115,7 +107,7 @@ SPACESHIP_PROMPT_ORDER=(
 ' >> ~/.zshrc
     echo "Dracula theme installed."
 else
-    echo "The theme installation could not proceed. Verify oh-my-zsh installation."
+    echo "The theme installation could not proceed. Verify zsh installation."
 fi
 
 if [[ -f ~/.zshrc && -w ~/.zshrc ]]; then
@@ -131,6 +123,10 @@ zinit light zsh-users/zsh-completions
     # Removing old installations
     rm -rf "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt"
     rm -rf "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+    # Remove the installation of this profile before inserting a new one at the end of the file
+    sed -i '/#START SPACESHIP DRACULA PROFILE/,/#END SPACESHIP DRACULA PROFILE/d' ~/.zshrc
+    # Replace the current ZSH_THEME with spaceship
+    sed -i 's/ZSH_THEME="[^"]*"/ZSH_THEME="spaceship"/' ~/.zshrc
     git clone https://github.com/Maaacs/Spaceship-Dracula-Colors.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1
     # Symbolic link to spaceship theme file
     ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
