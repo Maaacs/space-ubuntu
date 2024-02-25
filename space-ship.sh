@@ -27,9 +27,6 @@ zinit light zsh-users/zsh-completions
     ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
     # Replace the current ZSH_THEME with spaceship
     sed -i 's/ZSH_THEME="[^"]*"/ZSH_THEME="spaceship"/' ~/.zshrc
-    sudo apt-get install dconf-cli
-    git clone https://github.com/dracula/gnome-terminal
-    ./gnome-terminal/install.sh
     echo '
 #START SPACESHIP DRACULA PROFILE
 #SPACESHIP_CHAR_SYMBOL="➜"
