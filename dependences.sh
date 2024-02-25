@@ -8,25 +8,11 @@
 OS=$(uname -s)
 if [[ "$OS" == "Linux" ]]; then
   echo "Installating dependences on Linux..."
-  #sudo add-apt-repository universe
+  sudo add-apt-repository universe
   sudo apt update && sudo apt upgrade -y
-  sudo apt-get install git
-  echo "installing Fira Code..."
-  fonts_dir="${HOME}/.local/share/fonts"
-  if [ ! -d "${fonts_dir}" ]; then
-    echo "mkdir -p $fonts_dir"
-    mkdir -p "${fonts_dir}"
-  else
-    echo "Found fonts dir $fonts_dir"
-  fi
-  version=5.2
-  zip=Fira_Code_v${version}.zip
-  curl --fail --location --show-error https://github.com/tonsky/FiraCode/releases/download/${version}/${zip} --output ${zip}
-  unzip -o -q -d ${fonts_dir} ${zip}
-  rm ${zip}
-  echo "fc-cache -f"
-  fc-cache -f
-  gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code 11'
+  sudo apt-get install git-all
+  sudo apt install fonts-firacode
+  echo "Finish install dependences on Linux."
   echo "Installing ohmyzsh"
   sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
   echo "Finish ohmyzsh install"
