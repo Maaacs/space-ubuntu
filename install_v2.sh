@@ -17,9 +17,6 @@ if [[ "$OS" == "Linux" ]]; then
   #chsh -s $(which zsh)
   #touch ~/.zshrc
   sudo apt install fonts-firacode
-  sudo apt-get install dconf-cli
-  git clone https://github.com/dracula/gnome-terminal
-  ./gnome-terminal/install.sh
   echo "Finish install dependences on Linux."
 elif [[ "$OS" == "Darwin" ]]; then
   echo "Start installation on MacOS X."
