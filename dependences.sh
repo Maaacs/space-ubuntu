@@ -8,7 +8,7 @@
 OS=$(uname -s)
 if [[ "$OS" == "Linux" ]]; then
   echo "Installating dependences on Linux..."
-  sudo add-apt-repository universe
+  #sudo add-apt-repository universe
   sudo apt update && sudo apt upgrade -y
   sudo apt-get install git-all
   sudo apt install fonts-firacode
