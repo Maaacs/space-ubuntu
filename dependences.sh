@@ -13,9 +13,6 @@ if [[ "$OS" == "Linux" ]]; then
   sudo apt-get install git-all
   sudo apt install fonts-firacode
   echo "Finish install dependences on Linux."
-  sudo apt-get install dconf-cli
-  git clone https://github.com/dracula/gnome-terminal
-  ./gnome-terminal/install.sh
   echo "Installing ohmyzsh"
   sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
   echo "Finish ohmyzsh install"
