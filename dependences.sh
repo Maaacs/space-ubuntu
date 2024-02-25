@@ -10,8 +10,7 @@ if [[ "$OS" == "Linux" ]]; then
   echo "Installating dependences on Linux..."
   #sudo add-apt-repository universe
   sudo apt update && sudo apt upgrade -y
-  sudo apt-get install git-all
-  sudo apt install fonts-firacode
+  sudo apt-get install git
   echo "Finish install dependences on Linux."
   echo "Installing ohmyzsh"
   sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
