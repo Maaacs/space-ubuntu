@@ -8,14 +8,9 @@
 OS=$(uname -s)
 if [[ "$OS" == "Linux" ]]; then
   echo "Installating dependences on Linux..."
-  #sudo rm /var/lib/dpkg/info/format
-  #sudo printf "1\n" > /var/lib/dpkg/info/format
   sudo add-apt-repository universe
   sudo apt update && sudo apt upgrade -y
   sudo apt-get install git-all
-  #sudo apt install zsh
-  #chsh -s $(which zsh)
-  #touch ~/.zshrc
   sudo apt install fonts-firacode
   echo "Finish install dependences on Linux."
   echo "Installing ohmyzsh"
