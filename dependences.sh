@@ -29,6 +29,7 @@ if [[ "$OS" == "Linux" ]]; then
   rm ${zip}
   echo "fc-cache -f"
   fc-cache -f
+  gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code 11'
   echo "Finish ohmyzsh install"
 elif [[ "$OS" == "Darwin" ]]; then
   echo "Start installation on MacOS X."
