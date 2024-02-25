@@ -11,9 +11,7 @@ if [[ "$OS" == "Linux" ]]; then
   #sudo add-apt-repository universe
   sudo apt update && sudo apt upgrade -y
   sudo apt-get install git
-  echo "Finish install dependences on Linux."
-  echo "Installing ohmyzsh"
-  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  echo "installing Fira Code..."
   fonts_dir="${HOME}/.local/share/fonts"
   if [ ! -d "${fonts_dir}" ]; then
     echo "mkdir -p $fonts_dir"
@@ -29,6 +27,8 @@ if [[ "$OS" == "Linux" ]]; then
   echo "fc-cache -f"
   fc-cache -f
   gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code 11'
+  echo "Installing ohmyzsh"
+  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
   echo "Finish ohmyzsh install"
 elif [[ "$OS" == "Darwin" ]]; then
   echo "Start installation on MacOS X."
