@@ -10,7 +10,7 @@
 Dracula spaceship installer for linux.
 
 # About
-Original and complete repository at [`Spaceship-Dracula-Colors`](https://github.com/Maaacs/Spaceship-Dracula-Colors)
+Main repository at [`Spaceship-Dracula-Colors`](https://github.com/Maaacs/Spaceship-Dracula-Colors)
 
 ## Requirements
 
