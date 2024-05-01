@@ -14,9 +14,9 @@ Original and complete repository at [`Spaceship-Dracula-Colors`](https://github.
 
 ## Requirements
 
-To work correctly, you will first need:
+To work correctly, you will first need install:
 
-[`zsh`](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) 
+- [`zsh`](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) 
 
 ## Installing
 
