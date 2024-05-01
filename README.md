@@ -2,15 +2,25 @@
   <a href="https://github.com/spaceship-prompt/spaceship-prompt">
     <img alt="spaceship →~ prompt" src="https://cloud.githubusercontent.com/assets/3459374/21679181/46e24706-d34b-11e6-82ee-5efb3d2ba70f.png" width="400">
   </a>
-  <br>🚀⭐ Spaceship Oh-My-Zsh Dracula Colors <br>
+  <br>🚀⭐ Spaceship Dracula Colors to Linux <br>
 </h1>
 
 
-# Linux
-Dracula spaceship installer for linux.
+Spaceship is a minimalistic, powerful and extremely customizable Zsh prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
-# About
-Main repository at [`Spaceship-Dracula-Colors`](https://github.com/Maaacs/Spaceship-Dracula-Colors)
+Spaceship Dracula Colors modifies and recolors the original spaceship theme, offering rapid installation and uninstallation similar to a rocket's speed. Main repository at [`Spaceship-Dracula-Colors`](https://github.com/Maaacs/Spaceship-Dracula-Colors).
+
+
+<p align="center">
+  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
+</p>
+<p align="center"><em>Spaceship Default theme</em></p>
+
+<p align="center">
+<img width="980px" alt="Terminal" src="https://github.com/Maaacs/Spaceship-Dracula-Colors/assets/56925726/33867605-0b60-4878-9352-ff79b32a006a">
+</p>
+<p align="center"><em>Spaceship Dracula Colors theme</em></p>
+
 
 ## Requirements
 
